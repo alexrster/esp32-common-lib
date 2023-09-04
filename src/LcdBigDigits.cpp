@@ -1,3 +1,5 @@
+#ifdef ESP32_LCD
+
 #include <Arduino.h>
 #include "LcdBigDigits.h"
 
@@ -58,3 +60,5 @@ void showBigNumberFixed(hd44780 *lcd, int value, byte minLength, int position)
   
   showBigNumber(lcd, buffer, position);
 }
+
+#endif

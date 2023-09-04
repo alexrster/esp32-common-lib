@@ -1,3 +1,5 @@
+#ifdef ESP32_LCD
+
 #ifndef __LCD_SYMBOL_ALERT_H
 #define __LCD_SYMBOL_ALERT_H
 
@@ -64,5 +66,7 @@ class LcdSymbolAlert
       out->write(' ');
     }
 };
+
+#endif
 
 #endif

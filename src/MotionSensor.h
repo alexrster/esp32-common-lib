@@ -4,28 +4,28 @@
 #include <Arduino.h>
 #include <functional>
 
-typedef enum MotionState { 
+enum class MotionState : uint8_t { 
   None = 0,
-  Detected = 1
-} MotionState_t;
-
-typedef std::function<void(MotionState_t)> MotionSensorEventCallback;
+  Detected
+};
 
 class MotionSensor
 {
   public:
+    typedef std::function<void(MotionSensor*, MotionState)> MotionEventCallback;
+
     MotionSensor(uint8_t pin) : pin(pin)
     {
       pinMode(pin, INPUT);
       setState(digitalRead(pin));
     }
 
-    MotionState_t getState()
+    MotionState getState()
     {
       return state;
     }
 
-    void onChanged(MotionSensorEventCallback cb)
+    void onChanged(MotionEventCallback cb)
     {
       onMotionStateCallback = cb;
     }
@@ -39,21 +39,21 @@ class MotionSensor
         setState(s);
 
         if (onMotionStateCallback != NULL)
-          onMotionStateCallback((MotionState_t)s);
+          onMotionStateCallback(this, state);
       }
     }
 
   private:
     uint8_t pin;
-    MotionState_t state = None, lastState = None;
-    MotionSensorEventCallback onMotionStateCallback = NULL;
+    MotionState state = MotionState::None, lastState = MotionState::None;
+    MotionEventCallback onMotionStateCallback = NULL;
     unsigned long lastReadValueMs = 0;
 
     void setState(int value) {
       log_d("Motion sensor @%d: value=%d", pin, value);
 
       lastState = state;
-      state = value == 0 ? None : Detected;
+      state = value == 0 ? MotionState::None : MotionState::Detected;
     }
 };
 

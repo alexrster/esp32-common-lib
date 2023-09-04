@@ -1,3 +1,5 @@
+#ifdef ESP32_LCD
+
 #ifndef __LCD_DRAWER_H
 #define __LCD_DRAWER_H
 
@@ -40,5 +42,7 @@ class LcdPrintDrawer : public Print
     String text;
     bool redraw = false;
 };
+
+#endif
 
 #endif

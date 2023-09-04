@@ -1,3 +1,5 @@
+#ifdef ESP32_LCD
+
 #ifndef __LCD_FIXED_POSITION_PRINT_H
 #define __LCD_FIXED_POSITION_PRINT_H
 
@@ -27,5 +29,7 @@ class LcdFixedPositionPrint : public Print
     uint8_t row;
     uint8_t col;
 };
+
+#endif
 
 #endif

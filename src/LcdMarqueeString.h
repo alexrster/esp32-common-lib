@@ -1,3 +1,5 @@
+#ifdef ESP32_LCD
+
 #ifndef __LCD_MARQUEE_STRING_H
 #define __LCD_MARQUEE_STRING_H
 
@@ -129,5 +131,7 @@ class LcdMarqueeString
       text_changed = true;
     }
 };
+
+#endif
 
 #endif

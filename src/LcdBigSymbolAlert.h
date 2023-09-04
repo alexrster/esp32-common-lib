@@ -1,3 +1,5 @@
+#ifdef ESP32_LCD
+
 #ifndef __LCD_BIG_SYMBOL_ALERT_H
 #define __LCD_BIG_SYMBOL_ALERT_H
 
@@ -79,5 +81,7 @@ class LcdBigSymbolAlert
       lcd->print("   ");
     }
 };
+
+#endif
 
 #endif

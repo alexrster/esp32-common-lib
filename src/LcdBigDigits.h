@@ -1,3 +1,5 @@
+#ifdef ESP32_LCD
+
 #ifndef __LCD_BIG_DIGITS_H
 #define __LCD_BIG_DIGITS_H
 
@@ -8,5 +10,7 @@
 void setupBigDigit(hd44780 *lcd);
 void showBigDigit(hd44780 *lcd, int digit, int position);
 void showBigNumberFixed(hd44780 *lcd, int value, byte minLength, int position);
+
+#endif
 
 #endif

@@ -1,3 +1,5 @@
+#ifdef ESP32_LCD
+
 #ifndef __LCD_BLINK_STRING_H
 #define __LCD_BLINK_STRING_H
 
@@ -83,5 +85,7 @@ class LcdBlinkString
       return 0;
     }
 };
+
+#endif
 
 #endif
