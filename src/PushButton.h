@@ -5,7 +5,7 @@
 #include <functional>
 
 #define DIGITAL_READ_COUNT          20
-#define DIGITAL_READ_THRESHOLD      10
+#define DIGITAL_READ_THRESHOLD      DIGITAL_READ_COUNT / 2
 #define DIGITAL_READ_DELAY_MS       2
 #define READ_THRESHOLD_MS           200
 
